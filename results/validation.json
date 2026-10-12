@@ -1,0 +1,240 @@
+[
+  {
+    "timestamp": "2026-10-12T10:52:12.463295+00:00",
+    "checks": [
+      {
+        "command": "cargo fmt",
+        "exit_status": 0,
+        "seconds": 0.097,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=39472 elapsed_seconds=0.09\n"
+      },
+      {
+        "command": "cargo test --offline",
+        "exit_status": 0,
+        "seconds": 8.789,
+        "classification": "OBSERVED",
+        "output": "     Locking 11 packages to latest Rust 1.98.1 compatible versions\n      Adding serde v1.0.228 (available: v1.0.229)\n      Adding serde_core v1.0.228 (available: v1.0.229)\n      Adding serde_derive v1.0.228 (available: v1.0.229)\n      Adding serde_json v1.0.149 (available: v1.0.151)\n   Compiling proc-macro2 v1.0.107\n   Compiling unicode-ident v1.0.26\n   Compiling quote v1.0.47\n   Compiling serde_core v1.0.228\n   Compiling zmij v1.0.23\n   Compiling syn v2.0.119\n   Compiling serde_json v1.0.149\n   Compiling serde v1.0.228\n   Compiling memchr v2.8.3\n   Compiling serde_derive v1.0.228\n   Compiling itoa v1.0.18\n   Compiling production-bottleneck-simulator v0.1.0 ([workspace]/projects/production-bottleneck-simulator)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.62s\n     Running unittests src/lib.rs (target/debug/deps/production_bottleneck_simulator-052ee1f0b58e67cf)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/main.rs (target/debug/deps/production_bottleneck_simulator-38ce2a294de098a6)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/simulation.rs (target/debug/deps/simulation-0830322d5360327e)\n\nrunning 7 tests\ntest invalid ... ok\ntest finite_buffers_conservation ... ok\ntest pause_reference ... ok\ntest single_analytical ... ok\ntest faster_capacity_case ... ok\ntest two_stage_analytical ... ok\ntest seed_reproducible ... ok\n\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n   Doc-tests production_bottleneck_simulator\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\nOBSERVED peak_RSS_KiB=271936 elapsed_seconds=8.78\n"
+      },
+      {
+        "command": "cargo clippy --offline -- -D warnings",
+        "exit_status": 101,
+        "seconds": 2.693,
+        "classification": "OBSERVED",
+        "output": "    Checking serde_core v1.0.228\n    Checking zmij v1.0.23\n    Checking itoa v1.0.18\n    Checking memchr v2.8.3\n    Checking serde v1.0.228\n    Checking serde_json v1.0.149\n    Checking production-bottleneck-simulator v0.1.0 ([workspace]/projects/production-bottleneck-simulator)\nerror: the loop variable `i` is used to index `s`\n   --> src/lib.rs:181:18\n    |\n181 |         for i in 0..n {\n    |                  ^^^^\n    |\n    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.98.0/index.html#needless_range_loop\n    = note: `-D clippy::needless-range-loop` implied by `-D warnings`\n    = help: to override `-D warnings` add `#[allow(clippy::needless_range_loop)]`\nhelp: consider using an iterator and enumerate()\n    |\n181 -         for i in 0..n {\n181 +         for (i, <item>) in s.iter_mut().enumerate().take(n) {\n    |\n\nerror: could not compile `production-bottleneck-simulator` (lib) due to 1 previous error\nCommand exited with non-zero status 101\nOBSERVED peak_RSS_KiB=247400 elapsed_seconds=2.69\n"
+      },
+      {
+        "command": "cargo build --offline",
+        "exit_status": 0,
+        "seconds": 0.089,
+        "classification": "OBSERVED",
+        "output": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.05s\nOBSERVED peak_RSS_KiB=34104 elapsed_seconds=0.08\n"
+      },
+      {
+        "command": "python3 src/scenarios.py",
+        "exit_status": 0,
+        "seconds": 0.135,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=15276 elapsed_seconds=0.13\n"
+      },
+      {
+        "command": "python3 -m unittest discover -s tests -v",
+        "exit_status": 0,
+        "seconds": 0.074,
+        "classification": "OBSERVED",
+        "output": "test_report (test_scenarios.Scenarios.test_report) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\nOBSERVED peak_RSS_KiB=15688 elapsed_seconds=0.07\n"
+      },
+      {
+        "command": "node --test tests/dashboard.test.js",
+        "exit_status": 0,
+        "seconds": 1.272,
+        "classification": "OBSERVED",
+        "output": "TAP version 13\n# Subtest: actual report accepts\nok 1 - actual report accepts\n  ---\n  duration_ms: 4.905941\n  ...\n# Subtest: invalid metrics reject\nok 2 - invalid metrics reject\n  ---\n  duration_ms: 0.560859\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 688.615636\nOBSERVED peak_RSS_KiB=49384 elapsed_seconds=1.27\n"
+      },
+      {
+        "command": "npm install --package-lock-only --ignore-scripts --no-audit --no-fund",
+        "exit_status": 0,
+        "seconds": 1.001,
+        "classification": "OBSERVED",
+        "output": "\nup to date in 133ms\nOBSERVED peak_RSS_KiB=79364 elapsed_seconds=0.99\n"
+      },
+      {
+        "command": "cargo fmt --check",
+        "exit_status": 0,
+        "seconds": 0.074,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=39456 elapsed_seconds=0.07\n"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-12T10:52:35.827359+00:00",
+    "checks": [
+      {
+        "command": "cargo fmt",
+        "exit_status": 0,
+        "seconds": 0.068,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=39396 elapsed_seconds=0.06\n"
+      },
+      {
+        "command": "cargo clippy --offline -- -D warnings",
+        "exit_status": 0,
+        "seconds": 0.451,
+        "classification": "OBSERVED",
+        "output": "    Checking production-bottleneck-simulator v0.1.0 ([workspace]/projects/production-bottleneck-simulator)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.39s\nOBSERVED peak_RSS_KiB=138796 elapsed_seconds=0.44\n"
+      },
+      {
+        "command": "cargo test --offline",
+        "exit_status": 0,
+        "seconds": 0.832,
+        "classification": "OBSERVED",
+        "output": "   Compiling production-bottleneck-simulator v0.1.0 ([workspace]/projects/production-bottleneck-simulator)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.75s\n     Running unittests src/lib.rs (target/debug/deps/production_bottleneck_simulator-052ee1f0b58e67cf)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/main.rs (target/debug/deps/production_bottleneck_simulator-38ce2a294de098a6)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/simulation.rs (target/debug/deps/simulation-0830322d5360327e)\n\nrunning 7 tests\ntest invalid ... ok\ntest pause_reference ... ok\ntest finite_buffers_conservation ... ok\ntest single_analytical ... ok\ntest faster_capacity_case ... ok\ntest two_stage_analytical ... ok\ntest seed_reproducible ... ok\n\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n   Doc-tests production_bottleneck_simulator\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\nOBSERVED peak_RSS_KiB=154200 elapsed_seconds=0.83\n"
+      },
+      {
+        "command": "cargo build --offline",
+        "exit_status": 0,
+        "seconds": 0.044,
+        "classification": "OBSERVED",
+        "output": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.02s\nOBSERVED peak_RSS_KiB=26912 elapsed_seconds=0.04\n"
+      },
+      {
+        "command": "python3 src/scenarios.py",
+        "exit_status": 0,
+        "seconds": 0.116,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=15344 elapsed_seconds=0.11\n"
+      },
+      {
+        "command": "python3 -m unittest discover -s tests -v",
+        "exit_status": 0,
+        "seconds": 0.082,
+        "classification": "OBSERVED",
+        "output": "test_report (test_scenarios.Scenarios.test_report) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\nOBSERVED peak_RSS_KiB=15688 elapsed_seconds=0.08\n"
+      },
+      {
+        "command": "node --test tests/dashboard.test.js",
+        "exit_status": 0,
+        "seconds": 0.389,
+        "classification": "OBSERVED",
+        "output": "TAP version 13\n# Subtest: actual report accepts\nok 1 - actual report accepts\n  ---\n  duration_ms: 3.3883\n  ...\n# Subtest: invalid metrics reject\nok 2 - invalid metrics reject\n  ---\n  duration_ms: 0.357511\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 226.477936\nOBSERVED peak_RSS_KiB=49696 elapsed_seconds=0.38\n"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-12T10:54:20.792032+00:00",
+    "checks": [
+      {
+        "command": "node --test tests/dashboard.test.js",
+        "exit_status": 0,
+        "seconds": 0.417,
+        "classification": "OBSERVED",
+        "output": "TAP version 13\n# Subtest: actual report accepts\nok 1 - actual report accepts\n  ---\n  duration_ms: 4.417587\n  ...\n# Subtest: invalid metrics reject\nok 2 - invalid metrics reject\n  ---\n  duration_ms: 0.399964\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 246.974027\nOBSERVED peak_RSS_KiB=49696 elapsed_seconds=0.41\n"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-12T11:14:48.959571+00:00",
+    "checks": [
+      {
+        "command": "../portfolio-delivery-20261012/.venv/bin/ruff check src tests tools --select E4,F --fix --output-format concise",
+        "exit_status": 0,
+        "seconds": 0.014,
+        "classification": "OBSERVED",
+        "output": "Found 3 errors (3 fixed, 0 remaining).\nOBSERVED peak_RSS_KiB=19292 elapsed_seconds=0.01\n"
+      },
+      {
+        "command": "../portfolio-delivery-20261012/.venv/bin/ruff format src tests tools",
+        "exit_status": 0,
+        "seconds": 0.014,
+        "classification": "OBSERVED",
+        "output": "3 files reformatted\nOBSERVED peak_RSS_KiB=17076 elapsed_seconds=0.01\n"
+      },
+      {
+        "command": "../portfolio-delivery-20261012/.venv/bin/ruff check src tests tools --select E4,E7,E9,F",
+        "exit_status": 0,
+        "seconds": 0.013,
+        "classification": "OBSERVED",
+        "output": "All checks passed!\nOBSERVED peak_RSS_KiB=16472 elapsed_seconds=0.01\n"
+      },
+      {
+        "command": "../portfolio-delivery-20261012/.venv/bin/ruff format --check src tests tools",
+        "exit_status": 0,
+        "seconds": 0.014,
+        "classification": "OBSERVED",
+        "output": "3 files already formatted\nOBSERVED peak_RSS_KiB=16256 elapsed_seconds=0.01\n"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-12T11:14:50.304778+00:00",
+    "checks": [
+      {
+        "command": "../portfolio-delivery-20261012/node_modules/.bin/prettier --write web/*.html tests/*.js web/*.js",
+        "exit_status": 0,
+        "seconds": 0.695,
+        "classification": "OBSERVED",
+        "output": "web/index.html 128ms\ntests/dashboard.test.js 86ms\nweb/dashboard.js 65ms\nOBSERVED peak_RSS_KiB=73128 elapsed_seconds=0.69\n"
+      },
+      {
+        "command": "../portfolio-delivery-20261012/node_modules/.bin/prettier --check web/*.html tests/*.js web/*.js",
+        "exit_status": 0,
+        "seconds": 0.649,
+        "classification": "OBSERVED",
+        "output": "Checking formatting...\nAll matched files use Prettier code style!\nOBSERVED peak_RSS_KiB=73048 elapsed_seconds=0.64\n"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-12T11:14:51.208932+00:00",
+    "checks": [
+      {
+        "command": "cargo fmt --check",
+        "exit_status": 0,
+        "seconds": 0.077,
+        "classification": "OBSERVED",
+        "output": "OBSERVED peak_RSS_KiB=39468 elapsed_seconds=0.07\n"
+      },
+      {
+        "command": "cargo clippy --offline --locked -- -D warnings",
+        "exit_status": 0,
+        "seconds": 0.129,
+        "classification": "OBSERVED",
+        "output": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.07s\nOBSERVED peak_RSS_KiB=28724 elapsed_seconds=0.12\n"
+      },
+      {
+        "command": "cargo test --offline --locked",
+        "exit_status": 0,
+        "seconds": 0.147,
+        "classification": "OBSERVED",
+        "output": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s\n     Running unittests src/lib.rs (target/debug/deps/production_bottleneck_simulator-052ee1f0b58e67cf)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running unittests src/main.rs (target/debug/deps/production_bottleneck_simulator-38ce2a294de098a6)\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n     Running tests/simulation.rs (target/debug/deps/simulation-0830322d5360327e)\n\nrunning 7 tests\ntest invalid ... ok\ntest finite_buffers_conservation ... ok\ntest pause_reference ... ok\ntest single_analytical ... ok\ntest faster_capacity_case ... ok\ntest two_stage_analytical ... ok\ntest seed_reproducible ... ok\n\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n   Doc-tests production_bottleneck_simulator\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\nOBSERVED peak_RSS_KiB=79092 elapsed_seconds=0.14\n"
+      },
+      {
+        "command": "python3 -m unittest discover -s tests -v",
+        "exit_status": 0,
+        "seconds": 0.09,
+        "classification": "OBSERVED",
+        "output": "test_report (test_scenarios.Scenarios.test_report) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.002s\n\nOK\nOBSERVED peak_RSS_KiB=15768 elapsed_seconds=0.08\n"
+      },
+      {
+        "command": "node --test tests/dashboard.test.js",
+        "exit_status": 0,
+        "seconds": 0.46,
+        "classification": "OBSERVED",
+        "output": "TAP version 13\n# Subtest: actual report accepts\nok 1 - actual report accepts\n  ---\n  duration_ms: 4.302974\n  ...\n# Subtest: invalid metrics reject\nok 2 - invalid metrics reject\n  ---\n  duration_ms: 0.484703\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 256.508675\nOBSERVED peak_RSS_KiB=49952 elapsed_seconds=0.45\n"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-12T11:14:51.973349+00:00",
+    "checks": [
+      {
+        "command": "python3 tools/dependency_audit.py .",
+        "exit_status": 0,
+        "seconds": 0.718,
+        "classification": "OBSERVED",
+        "output": "OBSERVED 12 queries 0 advisories\nOBSERVED peak_RSS_KiB=22940 elapsed_seconds=0.71\n"
+      }
+    ]
+  }
+]

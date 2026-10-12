@@ -1,0 +1,15 @@
+{
+  "classification": "OBSERVED",
+  "checks": [
+    {
+      "arm": "baseline",
+      "configs_and_conservation_verified": true,
+      "summary_recalculation_matches": true
+    },
+    {
+      "arm": "candidate",
+      "configs_and_conservation_verified": true,
+      "summary_recalculation_matches": true
+    }
+  ]
+}

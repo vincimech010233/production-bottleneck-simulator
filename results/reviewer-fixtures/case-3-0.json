@@ -1,0 +1,1 @@
+{"horizon_ms": 30, "arrivals_ms": [0, 0, 1, 3, 5, 7, 9, 11, 13, 15, 30], "machines": [{"name": "m0", "cycle_ms": 2, "buffer_capacity": 1, "downtime_ms": []}, {"name": "m1", "cycle_ms": 3, "buffer_capacity": 1, "downtime_ms": []}, {"name": "m2", "cycle_ms": 1, "buffer_capacity": 1, "downtime_ms": []}], "seed": 11, "jitter_pct": 0}

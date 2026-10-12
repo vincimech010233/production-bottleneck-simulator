@@ -1,0 +1,10 @@
+{
+  "project": "production-bottleneck-simulator",
+  "status": "VALIDATED_LOCAL",
+  "classification": "VERIFIED",
+  "limitation": "Finite-horizon synthetic serial line; nominal bottleneck proxy; no industrial calibration.",
+  "review": "docs/REVIEW.md",
+  "tests": "results/validation.json",
+  "publication_ready_for_manual_review": true,
+  "remote_ci": "NOT_VERIFIED"
+}

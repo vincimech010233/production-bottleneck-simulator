@@ -1,0 +1,10 @@
+{
+  "classification": "OBSERVED",
+  "rustc": "1.98.1",
+  "cargo": "1.98.1",
+  "python": "3.12.3",
+  "node": "18.19.1",
+  "cargo_jobs": 2,
+  "ruff": "0.17.0",
+  "prettier": "3.9.10"
+}
