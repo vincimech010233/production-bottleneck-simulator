@@ -1,0 +1,37 @@
+[
+  {
+    "command": "cargo test --offline --locked --jobs 2",
+    "exit_status": 0,
+    "elapsed_seconds": 0.091,
+    "classification": "OBSERVED",
+    "output": "\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 7 tests\ntest invalid ... ok\ntest pause_reference ... ok\ntest faster_capacity_case ... ok\ntest finite_buffers_conservation ... ok\ntest single_analytical ... ok\ntest two_stage_analytical ... ok\ntest seed_reproducible ... ok\n\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.03s\n     Running unittests src/lib.rs (target/debug/deps/production_bottleneck_simulator-052ee1f0b58e67cf)\n     Running unittests src/main.rs (target/debug/deps/production_bottleneck_simulator-38ce2a294de098a6)\n     Running tests/simulation.rs (target/debug/deps/simulation-0830322d5360327e)\n   Doc-tests production_bottleneck_simulator\nREVIEW_OBSERVED_PEAK_RSS_KIB=79332\n"
+  },
+  {
+    "command": "cargo fmt --check",
+    "exit_status": 0,
+    "elapsed_seconds": 0.067,
+    "classification": "OBSERVED",
+    "output": "REVIEW_OBSERVED_PEAK_RSS_KIB=39500\n"
+  },
+  {
+    "command": "cargo clippy --offline --locked -- -D warnings",
+    "exit_status": 0,
+    "elapsed_seconds": 0.109,
+    "classification": "OBSERVED",
+    "output": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.06s\nREVIEW_OBSERVED_PEAK_RSS_KIB=36764\n"
+  },
+  {
+    "command": "python3 -m unittest discover -s tests -v",
+    "exit_status": 0,
+    "elapsed_seconds": 0.069,
+    "classification": "OBSERVED",
+    "output": "test_report (test_scenarios.Scenarios.test_report) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\nREVIEW_OBSERVED_PEAK_RSS_KIB=15616\n"
+  },
+  {
+    "command": "node --test tests/dashboard.test.js",
+    "exit_status": 0,
+    "elapsed_seconds": 0.35,
+    "classification": "OBSERVED",
+    "output": "TAP version 13\n# Subtest: actual report accepts\nok 1 - actual report accepts\n  ---\n  duration_ms: 3.529803\n  ...\n# Subtest: invalid metrics reject\nok 2 - invalid metrics reject\n  ---\n  duration_ms: 0.379059\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 193.238225\nREVIEW_OBSERVED_PEAK_RSS_KIB=50104\n"
+  }
+]

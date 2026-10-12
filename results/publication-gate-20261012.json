@@ -1,0 +1,191 @@
+{
+  "classification": "VERIFIED",
+  "timestamp": "2026-10-12T11:48:13.412283+00:00",
+  "initial_clean": true,
+  "checks": [
+    {
+      "command": "cargo fmt --check",
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "command": "cargo clippy --offline --locked -- -D warnings",
+      "exit": 0,
+      "output": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.10s\n"
+    },
+    {
+      "command": "cargo test --offline --locked",
+      "exit": 0,
+      "output": "\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 7 tests\ntest invalid ... ok\ntest finite_buffers_conservation ... ok\ntest pause_reference ... ok\ntest faster_capacity_case ... ok\ntest single_analytical ... ok\ntest two_stage_analytical ... ok\ntest seed_reproducible ... ok\n\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.08s\n     Running unittests src/lib.rs (target/debug/deps/production_bottleneck_simulator-052ee1f0b58e67cf)\n     Running unittests src/main.rs (target/debug/deps/production_bottleneck_simulator-38ce2a294de098a6)\n     Running tests/simulation.rs (target/debug/deps/simulation-0830322d5360327e)\n   Doc-tests production_bottleneck_simulator\n"
+    },
+    {
+      "command": "python3 -m unittest discover -s tests -v",
+      "exit": 0,
+      "output": "test_report (test_scenarios.Scenarios.test_report) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.002s\n\nOK\n"
+    },
+    {
+      "command": "node --test tests/dashboard.test.js",
+      "exit": 0,
+      "output": "TAP version 13\n# Subtest: actual report accepts\nok 1 - actual report accepts\n  ---\n  duration_ms: 6.142235\n  ...\n# Subtest: invalid metrics reject\nok 2 - invalid metrics reject\n  ---\n  duration_ms: 0.869885\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 419.259118\n"
+    },
+    {
+      "command": "[workspace]/projects/portfolio-delivery-20261012/.venv/bin/ruff check src tests tools --select E4,E7,E9,F",
+      "exit": 0,
+      "output": "All checks passed!\n"
+    },
+    {
+      "command": "[workspace]/projects/portfolio-delivery-20261012/.venv/bin/ruff format --check src tests tools",
+      "exit": 0,
+      "output": "3 files already formatted\n"
+    }
+  ],
+  "history_scan": {
+    "unique_blobs": 74,
+    "flags": [],
+    "classification": "OBSERVED",
+    "scope": "Conservative credential/private-host-path patterns; not exhaustive secret detection; all reachable git blobs"
+  },
+  "license": {
+    "mit_present": true,
+    "third_party_metadata": [
+      "LICENSE",
+      "results/licenses.json"
+    ],
+    "limitations": "Registry metadata reviewed; exhaustive legal/supply-chain review NOT_VERIFIED. Project license does not relicense third-party dependencies."
+  },
+  "dependency_audit": {
+    "classification": "OBSERVED",
+    "timestamp": "2026-10-12T11:48:13.412283+00:00",
+    "queries": [
+      {
+        "package": {
+          "name": "itoa",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.18"
+      },
+      {
+        "package": {
+          "name": "memchr",
+          "ecosystem": "crates.io"
+        },
+        "version": "2.8.3"
+      },
+      {
+        "package": {
+          "name": "proc-macro2",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.107"
+      },
+      {
+        "package": {
+          "name": "quote",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.47"
+      },
+      {
+        "package": {
+          "name": "serde",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.228"
+      },
+      {
+        "package": {
+          "name": "serde_core",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.228"
+      },
+      {
+        "package": {
+          "name": "serde_derive",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.228"
+      },
+      {
+        "package": {
+          "name": "serde_json",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.149"
+      },
+      {
+        "package": {
+          "name": "syn",
+          "ecosystem": "crates.io"
+        },
+        "version": "2.0.119"
+      },
+      {
+        "package": {
+          "name": "unicode-ident",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.26"
+      },
+      {
+        "package": {
+          "name": "zmij",
+          "ecosystem": "crates.io"
+        },
+        "version": "1.0.23"
+      },
+      {
+        "package": {
+          "name": "ruff",
+          "ecosystem": "PyPI"
+        },
+        "version": "0.17.0"
+      }
+    ],
+    "response": {
+      "results": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
+    },
+    "advisories": 0,
+    "scope": "OSV version lookup; no vulnerability-free or full supply-chain/legal assurance"
+  },
+  "tests_pass": true,
+  "working_tree_clean": true,
+  "reviewed_commit": "f3f2564455b7d0bbcc834bb0c56524b04e5e1719",
+  "phase": "Prepublication verification of implementation; documentation/evidence additions follow in the publication commit",
+  "example_reproduction": {
+    "classification": "VERIFIED",
+    "checks": [
+      {
+        "command": [
+          "python3",
+          "[workspace]/projects/production-bottleneck-simulator/src/scenarios.py"
+        ],
+        "exit": 0,
+        "output": ""
+      }
+    ],
+    "semantic_equal": true,
+    "comparison_scope": "Exact JSON semantic equality with committed result",
+    "output": "examples/production-bottleneck-simulator/results/report.json"
+  },
+  "authorship_privacy": {
+    "classification": "VERIFIED",
+    "original_git_author_identities_already_in_public_profile_history": true,
+    "address_values_retained_in_this_record": false
+  },
+  "hosted_ci": "NOT_VERIFIED at this prepublication gate; use exact commit GitHub Actions run after push",
+  "known_limitations_retained": true
+}

@@ -1,0 +1,52 @@
+{
+  "role": "Separate critical review agent using the same model as developer; not an independent model or external audit",
+  "timestamp": "2026-10-12T11:54:30.430512+00:00",
+  "project_review": {
+    "project": "production-bottleneck-simulator",
+    "decision": "APPROVE",
+    "classification": "VERIFIED",
+    "scope": "Public portfolio publication within the retained restricted/synthetic claims",
+    "reviewed_implementation_commit": "f3f2564455b7d0bbcc834bb0c56524b04e5e1719",
+    "test_summary": "Rust 7 + Python 1 + dashboard 2",
+    "independent_checks_file": "reviewer-tests-production-bottleneck-simulator.json",
+    "max_observed_check_peak_rss_kib": 79332,
+    "history_inspection": {
+      "project": "production-bottleneck-simulator",
+      "classification": "OBSERVED",
+      "historical_commits": 1,
+      "unique_historical_blobs": 74,
+      "binary_blob_count": 1,
+      "sensitive_pattern_findings": [],
+      "unexpected_history_artifacts": [],
+      "author_email_categories": {
+        "github_noreply": 0,
+        "other_configured_address": 1
+      },
+      "readme_publication_text_stale": true
+    },
+    "resolved_findings": [
+      "Current README no longer claims manual-only/no-push status; hosted CI wording is commit-specific",
+      "Draft publication review preserves historical evidence and separate same-model reviewer disclosure"
+    ],
+    "blocking_findings": [],
+    "limitations": [
+      "Finite-horizon censoring and nominal bottleneck definition",
+      "No industrial calibration; three seeds not distribution validation"
+    ],
+    "source_and_test_sha256": {
+      "src/main.rs": "b7e7d87efc17c251f446836e9672c04f7f9d9c5aff1b53c15d300ef9602b61d3",
+      "src/lib.rs": "5f1fa1b3c3a182bc7c97c40c2f71c75b78e56a371d139602906d711a234229a5",
+      "src/scenarios.py": "27bab396af5e292e8ac06e0be9d625255323c7f79337b89affe658c1df2de407",
+      "tests/dashboard.test.js": "8b8c240de12bce4c0257a8256f35779445b5410f49774f70af36368e5b4ce2b6",
+      "tests/simulation.rs": "1467242a8e27429b017c92c29cf2d9aaf2e9b16f3986ea7d548219fb2ec11554",
+      "tests/test_scenarios.py": "80abdc6dd14fff0006a93ab23806fb972528a78fe6b2713676514f8b58070df8",
+      "tools/dependency_audit.py": "45bf49acc44285b4578b098b9dee91877cec5d25d91810b5736b3556991a352a"
+    },
+    "draft_readme_sha256": "99a75fdc3356aaeb45aefe2d702f89359bcb2790a9d9f819c13e2478cf9c2a4a",
+    "draft_publication_review_sha256": "edb4484f9204b162a8b08e9e0eca1427427c5ae011bb5886be788c42c165ffb3",
+    "hosted_ci": "NOT_VERIFIED: remote workflow must be checked on published commit"
+  },
+  "scope": "Eight explicitly authorized independent public portfolio repositories; offline synthetic tests only; reviewer made no project source edits or remote changes",
+  "advisory_review": null,
+  "hosted_ci": "NOT_VERIFIED at prepublication review"
+}
